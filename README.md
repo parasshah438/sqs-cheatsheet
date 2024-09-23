@@ -6,10 +6,12 @@
 <h4>What is SQS</h4>
 <pre> 
 SQS stands for <b>Simple Queue Service</b>.
-Amazon SQS is a web service that gives you access to a message queue that can be used to store messages 
+Amazon SQS is a web service that gives you access 
+to a message queue that can be used to store messages 
 while waiting for a computer to process them.
 Amazon SQS is a distributed queue system that enables web service applications to quickly and 
-reliably queue messages that one component in the application generates to be consumed by another component 
+reliably queue messages that one component in the application 
+generates to be consumed by another component 
 where a queue is a temporary repository 
 for messages that are awaiting processing.
 SQS is a message queuing service.
@@ -94,7 +96,8 @@ Outcome: The queue is ready to accept messages<br>
 Step: Producers send messages to the queue using the SendMessage API call.
 Outcome: Messages are stored in the queue and can include attributes.<br>
 3) Message Storage
-Step: Messages remain in the queue until they are received or until their retention period expires (up to 14 days).
+Step: Messages remain in the queue until they are received or 
+until their retention period expires (up to 14 days).
 Outcome: Messages are available for consumption.<br>
 4) Message Retrieval
 Step: Consumers retrieve messages using the ReceiveMessage API call. 
@@ -104,15 +107,16 @@ Outcome: Messages are processed by the consumer application.<br>
 Step: The consumer processes the message according to its business logic.
 Outcome: Depending on the success or failure of processing, different actions will follow.<br>
 6) Message Deletion
-Step: After successful processing, the consumer deletes the message from the queue using the DeleteMessage API call.
+Step: After successful processing, the consumer deletes the message from the 
+queue using the DeleteMessage API call.
 Outcome: The message is permanently removed from the queue.<br>
 7) Visibility Timeout Expiration
 Step: If the consumer does not delete the message before the visibility timeout expires, 
 the message becomes visible again.
 Outcome: The message can be retrieved by the same or different consumers for processing.<br>
 8) Message Failure Handling
-Step: If a message fails to process after a certain number of attempts (as defined by the queue configuration), 
-it can be sent to a dead-letter queue.
+Step: If a message fails to process after a certain number of attempts 
+(as defined by the queue configuration), it can be sent to a dead-letter queue.
 Outcome: Messages in the dead-letter queue can be analyzed or retried later.<br>
 9) Message Retention Expiration
 Step: If a message remains in the queue beyond its configured retention period (up to 14 days), 
