@@ -17,8 +17,8 @@ Amazon SQS is primarily designed for sending and receiving messages in a queue
 </pre> 
 <h4>Queue Types</h4>
 <pre>
-	Standard Queues (default)
-	FIFO Queues (First-In-First-Out)
+Standard Queues (default)
+FIFO Queues (First-In-First-Out)
 </pre>
 <h4>Standard Queue</h4>
 <pre>
@@ -50,9 +50,11 @@ multiple consumers can receive messages at the same time.</li>
 The workflow of Amazon SQS involves several key steps, allowing applications to send, receive, 
 and process messages in a decoupled and scalable manner.<br>
 1) Queue Creation
-Set Up: A developer creates an SQS queue in the AWS Management Console or using AWS SDKs. This queue will hold the messages.<br>
+Set Up: A developer creates an SQS queue in the AWS Management Console or using AWS SDKs.
+This queue will hold the messages.<br>
 2) Sending Messages
-Producers: Applications (producers) send messages to the SQS queue. Each message can contain data, attributes, and metadata.
+Producers: Applications (producers) send messages to the SQS queue. Each message can contain data, 
+attributes, and metadata.
 Message Attributes: Optional metadata can be included to provide additional information about the message.<br>
 3) Message Storage
 Queue Management: Messages are stored in the queue until they are processed or 
@@ -69,7 +71,8 @@ This might involve data processing, triggering other actions, or interacting wit
 6) Deleting Messages
 Acknowledgment: After successfully processing the message, the consumer deletes 
 it from the queue to prevent it from being processed again.
-Error Handling: If processing fails, the message remains in the queue and can be retried based on the visibility timeout. 
+Error Handling: If processing fails, the message remains in the queue and can be retried based 
+on the visibility timeout. 
 If it fails multiple times, it can be sent to a dead-letter queue for further analysis.<br>
 7) Monitoring and Scaling
 CloudWatch Integration: Monitor the queue metrics using Amazon CloudWatch, 
@@ -79,7 +82,8 @@ Auto-scaling: Applications can scale up or down based on the message load.<br>
 Error Management: Messages that fail to process after a certain number of attempts are 
 moved to a dead-letter queue for troubleshooting and analysis.<br>
 9) Retries and Backoff Strategies
-Retry Logic: Consumers can implement retry logic with exponential backoff strategies to handle transient failures effectively.<br>
+Retry Logic: Consumers can implement retry logic with exponential backoff strategies to
+handle transient failures effectively.<br>
 </pre>
 <h4>lifecycle of a message in SQS</h4>
 <pre>
