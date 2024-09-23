@@ -5,15 +5,15 @@
 <h1>SQS</h1>
 <h4>What is SQS</h4>
 <pre> 
-	SQS stands for <b>Simple Queue Service</b>.
-	Amazon SQS is a web service that gives you access to a message queue that can be used to store messages 
-	while waiting for a computer to process them.
-	Amazon SQS is a distributed queue system that enables web service applications to quickly and 
-	reliably queue messages that one component in the application generates to be consumed by another component 
-	where a queue is a temporary repository 
-	for messages that are awaiting processing.
-	SQS is a message queuing service.
-	Amazon SQS is primarily designed for sending and receiving messages in a queue
+SQS stands for <b>Simple Queue Service</b>.
+Amazon SQS is a web service that gives you access to a message queue that can be used to store messages 
+while waiting for a computer to process them.
+Amazon SQS is a distributed queue system that enables web service applications to quickly and 
+reliably queue messages that one component in the application generates to be consumed by another component 
+where a queue is a temporary repository 
+for messages that are awaiting processing.
+SQS is a message queuing service.
+Amazon SQS is primarily designed for sending and receiving messages in a queue
 </pre> 
 <h4>Queue Types</h4>
 <pre>
