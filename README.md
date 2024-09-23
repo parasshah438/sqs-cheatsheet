@@ -42,78 +42,78 @@
 	The workflow of Amazon SQS involves several key steps, allowing applications to send, receive, 
 	and process messages in a decoupled and scalable manner.
 
-	1) <b>Queue Creation</b>
+	1) Queue Creation
 	Set Up: A developer creates an SQS queue in the AWS Management Console or using AWS SDKs. This queue will hold the messages.
 
-	2) <b>Sending Messages</b>
+	2) Sending Messages
 	Producers: Applications (producers) send messages to the SQS queue. Each message can contain data, attributes, and metadata.
 	Message Attributes: Optional metadata can be included to provide additional information about the message.
 
-	3) <b>Message Storage</b>
+	3) Message Storage
 	Queue Management: Messages are stored in the queue until they are processed or until their retention period expires (up to 14 days).
 
-	4) <b>Receiving Messages</b>
+	4) Receiving Messages
 	Consumers: Applications (consumers) poll the queue to retrieve messages. This can be done using short polling (immediate response) or long polling (waits for a message).
 	Visibility Timeout: Once a message is retrieved, it becomes invisible to other consumers for a specified visibility timeout period, allowing the processing application to handle it without duplication.
 
-	5) <b>Processing Messages</b>
+	5) Processing Messages
 	Business Logic: The consumer processes the message according to the business logic. 
 	This might involve data processing, triggering other actions, or interacting with databases.
 
-	6) <b>Deleting Messages</b>
+	6) Deleting Messages
 	Acknowledgment: After successfully processing the message, the consumer deletes it from the queue to prevent it from being processed again.
 	Error Handling: If processing fails, the message remains in the queue and can be retried based on the visibility timeout. 
 	If it fails multiple times, it can be sent to a dead-letter queue for further analysis.
 
-	7) <b>Monitoring and Scaling</b>
+	7) Monitoring and Scaling
 	CloudWatch Integration: Monitor the queue metrics using Amazon CloudWatch, such as message count, processing time,and error rates.
 	Auto-scaling: Applications can scale up or down based on the message load.
 
-	8) <b>Dead-Letter Queue Handling</b>
+	8) Dead-Letter Queue Handling
 	Error Management: Messages that fail to process after a certain number of attempts are moved to a dead-letter queue for troubleshooting and analysis.
 
-	9) <b>Retries and Backoff Strategies</b>
+	9) Retries and Backoff Strategies
 	Retry Logic: Consumers can implement retry logic with exponential backoff strategies to handle transient failures effectively.
 </pre>
 <h4>lifecycle of a message in SQS</h4>
 <pre>
-	1) <b>Queue Creation</b>
+	1) Queue Creation
 	Step: A developer creates an SQS queue (Standard or FIFO) through the AWS Management Console, CLI, or SDK.
 	Outcome: The queue is ready to accept messages
 
-	2) <b>Message Sending</b>
+	2) Message Sending
 	Step: Producers send messages to the queue using the SendMessage API call.
 	Outcome: Messages are stored in the queue and can include attributes.
 
-	3) <b>Message Storage</b>
+	3) Message Storage
 	Step: Messages remain in the queue until they are received or until their retention period expires (up to 14 days).
 	Outcome: Messages are available for consumption.
 
-	4) <b>Message Retrieval</b>
+	4) Message Retrieval
 	Step: Consumers retrieve messages using the ReceiveMessage API call. The message becomes invisible for a defined visibility timeout.
 	Outcome: Messages are processed by the consumer application.
 
-	5) <b>Message Processing</b>
+	5) Message Processing
 	Step: The consumer processes the message according to its business logic.
 	Outcome: Depending on the success or failure of processing, different actions will follow.
 
-	6) <b>Message Deletion</b>
+	6) Message Deletion
 	Step: After successful processing, the consumer deletes the message from the queue using the DeleteMessage API call.
 	Outcome: The message is permanently removed from the queue.
 
-	7) <b>Visibility Timeout Expiration</b>
+	7) Visibility Timeout Expiration
 	Step: If the consumer does not delete the message before the visibility timeout expires, the message becomes visible again.
 	Outcome: The message can be retrieved by the same or different consumers for processing.
 
-	8) <b>Message Failure Handling</b>
+	8) Message Failure Handling
 	Step: If a message fails to process after a certain number of attempts (as defined by the queue configuration), it can be sent to a dead-letter queue.
 	Outcome: Messages in the dead-letter queue can be analyzed or retried later.
 
-	9) <b>Message Retention Expiration</b>
+	9) Message Retention Expiration
 	Step: If a message remains in the queue beyond its configured retention period (up to 14 days), it is automatically deleted.
 	Outcome: The message is permanently removed, freeing up storage.
 
-	10) <b>Monitoring and Management</b>
+	10) Monitoring and Management
 	Step: Use Amazon CloudWatch to monitor the queue's metrics, including the number of messages sent, received, and deleted, as well as any failures.
 	Outcome: Insights into application performance and operational health.
 </pre>
